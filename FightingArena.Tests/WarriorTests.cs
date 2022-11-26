@@ -38,5 +38,11 @@ namespace FightingArena.Tests
         {
             Assert.That(warrior.Damage, Is.EqualTo(10));
         }
+
+        [Test]
+        public void HPCannotBeLessThanZero()
+        {
+            Assert.Throws<ArgumentException>(() => warrior = new Warrior("warrior", 10, -2));
+        }
     }
 }
