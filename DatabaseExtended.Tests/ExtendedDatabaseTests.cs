@@ -17,21 +17,6 @@ namespace DatabaseExtended.Tests
             db = new Database(new Person[] { person });
         }
 
-        //[Test]
-        //public void RemoveMethodShouldWorkCorrectly()
-        //{
-        //    Database db = new Database(new int[] { 1, 2, 3, 4, 5 });
-        //    db.Remove();
-        //    Assert.That(db.Count, Is.EqualTo(4), "Database count decreases with removing element");
-        //}
-
-        //[Test]
-        //public void ConstructorShouldTakeIntegersOnly()
-        //{
-        //    var chars = new char[] { 'a', 'b' };
-        //    Assert.Throws<InvalidOperationException>(() => new Database(chars));
-        //}
-
         [Test]
         public void AddMethodWithExistantUsernameShouldThrow()
         {
@@ -71,6 +56,13 @@ namespace DatabaseExtended.Tests
         {
             db = new Database(new Person[0]);
             Assert.Throws<InvalidOperationException>(() => db.Remove());
+        }
+
+        [Test]
+        public void RemoveMethodShouldWorkCorrectly()
+        {
+            db.Remove();
+            Assert.That(db.Count, Is.EqualTo(0), "Database count decreases with removing element");
         }
     }
 }
