@@ -18,5 +18,11 @@
         {
             Assert.That(arena.Warriors, Is.EqualTo(new Arena().Warriors));
         }
+
+        [Test]
+        public void CountGetterShouldWorkCorrectly()
+        {
+            Assert.That(arena.Count, Is.EqualTo(0));
+        }
     }
 }
