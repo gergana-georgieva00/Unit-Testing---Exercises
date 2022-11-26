@@ -63,5 +63,11 @@ namespace FightingArena.Tests
             warrior = new Warrior("warrior", 10, 50);
             Assert.Throws<InvalidOperationException>(() => warrior.Attack(new Warrior("name", 20, 30)));
         }
+
+        [Test]
+        public void AttackMethodWithWarriorHPLowerThanTargetDamage()
+        {
+            Assert.Throws<InvalidOperationException>(() => warrior.Attack(new Warrior("name", 20, 30)));
+        }
     }
 }
