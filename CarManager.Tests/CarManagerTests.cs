@@ -73,5 +73,11 @@ namespace CarManager.Tests
         {
             Assert.That(car.FuelAmount, Is.EqualTo(0));
         }
+
+        [Test]
+        public void RefuelMethodCannotAcceptZeroOrNegativeAmountOfFuel()
+        {
+            Assert.Throws<ArgumentException>(() => car.Refuel(-1));
+        }
     }
 }
