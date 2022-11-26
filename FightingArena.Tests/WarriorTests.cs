@@ -87,5 +87,14 @@ namespace FightingArena.Tests
             warrior.Attack(target);
             Assert.That(target.HP, Is.EqualTo(25));
         }
+
+        [Test]
+        public void AttackMethodShouldMakeTargetHPZero()
+        {
+            var target = new Warrior("name", 20, 35);
+            warrior = new Warrior("warrior", 60, 50);
+            warrior.Attack(target);
+            Assert.That(target.HP, Is.EqualTo(0));
+        }
     }
 }
