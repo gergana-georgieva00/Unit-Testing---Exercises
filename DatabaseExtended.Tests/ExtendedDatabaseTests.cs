@@ -65,5 +65,12 @@ namespace DatabaseExtended.Tests
 
             Assert.Throws<InvalidOperationException>(() => db.Add(new Person(123, "User")));
         }
+
+        [Test]
+        public void RemoveMethodOnEmptyShouldThrow()
+        {
+            db = new Database(new Person[0]);
+            Assert.Throws<InvalidOperationException>(() => db.Remove());
+        }
     }
 }
