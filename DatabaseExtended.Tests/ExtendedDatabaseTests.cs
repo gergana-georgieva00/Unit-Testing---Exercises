@@ -35,9 +35,13 @@ namespace DatabaseExtended.Tests
         [Test]
         public void AddMethodWithExistantUsernameShouldThrow()
         {
-            
             Assert.Throws<InvalidOperationException>(() => db.Add(new Person(123, "Username")));
         }
 
+        [Test]
+        public void AddMethodWithExistantIdShouldThrow()
+        {
+            Assert.Throws<InvalidOperationException>(() => db.Add(new Person(1234567890, "User")));
+        }
     }
 }
