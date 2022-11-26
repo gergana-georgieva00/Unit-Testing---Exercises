@@ -19,5 +19,11 @@ namespace CarManager.Tests
         {
             Assert.Throws<ArgumentException>(() => car = new Car("", "model", 10, 20));
         }
+
+        [Test]
+        public void MakeGetterWorksCorrectly()
+        {
+            Assert.That(car.Make, Is.EqualTo("make"));
+        }
     }
 }
