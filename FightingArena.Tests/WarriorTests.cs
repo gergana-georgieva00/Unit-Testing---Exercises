@@ -32,5 +32,11 @@ namespace FightingArena.Tests
             Assert.Throws<ArgumentException>(() => warrior = new Warrior("warrior", 0, 20));
             Assert.Throws<ArgumentException>(() => warrior = new Warrior("warrior", -1, 20));
         }
+
+        [Test]
+        public void DamageGetterWorksCorrectly()
+        {
+            Assert.That(warrior.Damage, Is.EqualTo(10));
+        }
     }
 }
