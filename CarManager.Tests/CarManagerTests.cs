@@ -63,9 +63,9 @@ namespace CarManager.Tests
         }
 
         [Test]
-        public void FuelAmountCanotBeZeroOrLess()
+        public void InitialFuelAmountShouldBeZero()
         {
-            Assert.Throws<ArgumentException>(() => car = new Car("make", "model", 10, -1));
+            Assert.That(car.FuelAmount, Is.EqualTo(0));
         }
 
         [Test]
