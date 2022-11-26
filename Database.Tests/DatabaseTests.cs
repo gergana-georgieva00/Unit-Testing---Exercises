@@ -43,5 +43,20 @@ namespace Database.Tests
             db.Remove();
             Assert.That(db.Count, Is.EqualTo(4), "Database count decreases with removing element");
         }
+
+        //[Test]
+        //public void ConstructorShouldTakeIntegersOnly()
+        //{
+        //    var chars = new char[] { 'a', 'b' };
+        //    Assert.Throws<InvalidOperationException>(() => new Database(chars));
+        //}
+
+        [Test]
+        public void FetchMethodShouldReturnTheElementsAsAnArray()
+        {
+            Database db = new Database(new int[] { 1, 2, 3, 4, 5 });
+            var resultArray = new int[5];
+            Assert.That(resultArray = db.Fetch(), Is.EqualTo(new int[] { 1, 2, 3, 4, 5 }), "Fetch method should return database as an array.");
+        }
     }
 }
