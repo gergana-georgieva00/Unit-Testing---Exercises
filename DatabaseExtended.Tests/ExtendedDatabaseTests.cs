@@ -18,6 +18,13 @@ namespace DatabaseExtended.Tests
         }
 
         [Test]
+        public void AddMethodShouldWorkCorrectly()
+        {
+            db.Add(new Person(123, "user"));
+            Assert.That(db.Count, Is.EqualTo(2), "Database count decreases with removing element");
+        }
+
+        [Test]
         public void AddMethodWithExistantUsernameShouldThrow()
         {
             Assert.Throws<InvalidOperationException>(() => db.Add(new Person(123, "Username")));
@@ -113,24 +120,9 @@ namespace DatabaseExtended.Tests
         public void DatabaseWithMoreThan16ElementsShouldThrow()
         {
             var persons = new Person[17];
-            //persons[0] = new Person(1, "a");
-            //persons[1] = new Person(1, "a");
-            //persons[2] = new Person(1, "a");
-            //persons[3] = new Person(1, "a");
-            //persons[4] = new Person(1, "a");
-            //persons[5] = new Person(1, "a");
-            //persons[6] = new Person(1, "a");
-            //persons[7] = new Person(1, "a");
-            //persons[8] = new Person(1, "a");
-            //persons[9] = new Person(1, "a");
-            //persons[10] = new Person(1, "a");
-            //persons[0] = new Person(1, "a");
-            //persons[0] = new Person(1, "a");
-            //persons[0] = new Person(1, "a");
-            //persons[0] = new Person(1, "a");
-            //persons[0] = new Person(1, "a");
-
             Assert.Throws<ArgumentException>(() => db = new Database(persons));
         }
+
+        
     }
 }
