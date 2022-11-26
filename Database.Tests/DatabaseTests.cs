@@ -28,5 +28,12 @@ namespace Database.Tests
             db.Add(6);
             Assert.That(db.Count, Is.EqualTo(6), "Database count increases with new element added");
         }
+
+        [Test]
+        public void RemoveMethodShouldThrowOnEmptyArray()
+        {
+            Database db = new Database(new int[0]);
+            Assert.Throws<InvalidOperationException>(() => db.Remove());
+        }
     }
 }
