@@ -108,5 +108,29 @@ namespace DatabaseExtended.Tests
             Assert.That(result.UserName, Is.EqualTo(expected.UserName));
             Assert.That(result.Id, Is.EqualTo(expected.Id));
         }
+
+        [Test]
+        public void DatabaseWithMoreThan16ElementsShouldThrow()
+        {
+            var persons = new Person[17];
+            //persons[0] = new Person(1, "a");
+            //persons[1] = new Person(1, "a");
+            //persons[2] = new Person(1, "a");
+            //persons[3] = new Person(1, "a");
+            //persons[4] = new Person(1, "a");
+            //persons[5] = new Person(1, "a");
+            //persons[6] = new Person(1, "a");
+            //persons[7] = new Person(1, "a");
+            //persons[8] = new Person(1, "a");
+            //persons[9] = new Person(1, "a");
+            //persons[10] = new Person(1, "a");
+            //persons[0] = new Person(1, "a");
+            //persons[0] = new Person(1, "a");
+            //persons[0] = new Person(1, "a");
+            //persons[0] = new Person(1, "a");
+            //persons[0] = new Person(1, "a");
+
+            Assert.Throws<ArgumentException>(() => db = new Database(persons));
+        }
     }
 }
