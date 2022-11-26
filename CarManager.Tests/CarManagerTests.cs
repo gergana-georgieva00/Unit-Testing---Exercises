@@ -25,5 +25,13 @@ namespace CarManager.Tests
         {
             Assert.That(car.Make, Is.EqualTo("make"));
         }
+
+        [Test]
+        public void ModelCannotBeNullOrEmpty()
+        {
+            Assert.Throws<ArgumentException>(() => car = new Car("make", "", 10, 20));
+        }
+
+
     }
 }
