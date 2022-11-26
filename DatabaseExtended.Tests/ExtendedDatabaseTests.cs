@@ -64,5 +64,11 @@ namespace DatabaseExtended.Tests
             db.Remove();
             Assert.That(db.Count, Is.EqualTo(0), "Database count decreases with removing element");
         }
+
+        [Test]
+        public void FindByUsernameWithNullOrEmpryInputShouldThrow()
+        {
+            Assert.Throws<ArgumentNullException>(() => db.FindByUsername(""));
+        }
     }
 }
