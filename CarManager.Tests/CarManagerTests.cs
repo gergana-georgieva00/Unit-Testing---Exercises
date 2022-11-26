@@ -37,5 +37,11 @@ namespace CarManager.Tests
         {
             Assert.That(car.Model, Is.EqualTo("model"));
         }
+
+        [Test]
+        public void FuelConsumptionCanotBeZeroOrLess()
+        {
+            Assert.Throws<ArgumentException>(() => car = new Car("make", "model", 0, 20));
+        }
     }
 }
