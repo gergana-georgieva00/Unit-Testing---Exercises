@@ -75,6 +75,13 @@ namespace CarManager.Tests
         }
 
         [Test]
+        public void FuelAmountCannotBeLessThanZero()
+        {
+            car = new Car("make", "model", 15.8, 92);
+            Assert.Throws<InvalidOperationException>(() => car.Drive(20));
+        }
+
+        [Test]
         public void RefuelMethodCannotAcceptZeroOrNegativeAmountOfFuel()
         {
             Assert.Throws<ArgumentException>(() => car.Refuel(-1));
