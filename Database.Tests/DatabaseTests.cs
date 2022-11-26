@@ -35,5 +35,13 @@ namespace Database.Tests
             Database db = new Database(new int[0]);
             Assert.Throws<InvalidOperationException>(() => db.Remove());
         }
+
+        [Test]
+        public void RemoveMethodShouldWorkCorrectly()
+        {
+            Database db = new Database(new int[] { 1, 2, 3, 4, 5 });
+            db.Remove();
+            Assert.That(db.Count, Is.EqualTo(4), "Database count decreases with removing element");
+        }
     }
 }
