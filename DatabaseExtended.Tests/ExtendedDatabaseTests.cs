@@ -92,5 +92,11 @@ namespace DatabaseExtended.Tests
         {
             Assert.Throws<ArgumentOutOfRangeException>(() => db.FindById(-1));
         }
+
+        [Test]
+        public void FindByIdWithNonExistentIdShouldThrow()
+        {
+            Assert.Throws<InvalidOperationException>(() => db.FindById(3));
+        }
     }
 }
