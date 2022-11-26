@@ -44,5 +44,11 @@ namespace FightingArena.Tests
         {
             Assert.Throws<ArgumentException>(() => warrior = new Warrior("warrior", 10, -2));
         }
+
+        [Test]
+        public void HPGetterWorksCorrectly()
+        {
+            Assert.That(warrior.HP, Is.EqualTo(20));
+        }
     }
 }
