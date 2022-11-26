@@ -51,7 +51,7 @@ namespace CarManager.Tests
         }
 
         [Test]
-        public void FuelAmountCanotBeZeroOrLess()
+        public void FuelCapacityCanotBeZeroOrLess()
         {
             Assert.Throws<ArgumentException>(() => car = new Car("make", "model", 10, -1));
         }
@@ -59,7 +59,7 @@ namespace CarManager.Tests
         [Test]
         public void FuelAmountGetterWorksCorrectly()
         {
-            Assert.That(car.FuelConsumption, Is.EqualTo(20));
+            Assert.That(car.FuelCapacity, Is.EqualTo(20));
         }
     }
 }
