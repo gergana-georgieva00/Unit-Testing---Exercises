@@ -76,5 +76,15 @@ namespace DatabaseExtended.Tests
         {
             Assert.Throws<InvalidOperationException>(() => db.FindByUsername("User"));
         }
+
+        [Test]
+        public void FindByUsernameReturnsCorrectObject()
+        {
+            Person result = db.FindByUsername("Username");
+            Person expected = new Person(1234567890, "Username");
+
+            Assert.That(result.UserName, Is.EqualTo(expected.UserName));
+            Assert.That(result.Id, Is.EqualTo(expected.Id));
+        }
     }
 }
