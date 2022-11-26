@@ -86,5 +86,12 @@ namespace CarManager.Tests
             car.Refuel(10);
             Assert.That(car.FuelAmount, Is.EqualTo(10));
         }
+
+        [Test]
+        public void RefuelMethodShouldResetTheFuelAmountIfBiggerThanCapacity()
+        {
+            car.Refuel(30);
+            Assert.That(car.FuelAmount, Is.EqualTo(20));
+        }
     }
 }
