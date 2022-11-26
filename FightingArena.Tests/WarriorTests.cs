@@ -56,5 +56,12 @@ namespace FightingArena.Tests
         {
             Assert.Throws<InvalidOperationException>(() => warrior.Attack(new Warrior("name", 20, 30)));
         }
+
+        [Test]
+        public void AttackMethodWithTargetHPLowShouldThrow()
+        {
+            warrior = new Warrior("warrior", 10, 50);
+            Assert.Throws<InvalidOperationException>(() => warrior.Attack(new Warrior("name", 20, 30)));
+        }
     }
 }
