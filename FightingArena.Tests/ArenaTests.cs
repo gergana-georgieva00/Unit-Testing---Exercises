@@ -1,6 +1,7 @@
 ﻿namespace FightingArena.Tests
 {
     using NUnit.Framework;
+    using System;
 
     [TestFixture]
     public class ArenaTests
@@ -23,6 +24,13 @@
         public void CountGetterShouldWorkCorrectly()
         {
             Assert.That(arena.Count, Is.EqualTo(0));
+        }
+
+        [Test]
+        public void EnrollMethodShouldThrowWithExistentWarrior()
+        {
+            arena.Enroll(new Warrior("name", 10, 20));
+            Assert.Throws<InvalidOperationException>(() => arena.Enroll(new Warrior("name", 10, 20)));
         }
     }
 }
