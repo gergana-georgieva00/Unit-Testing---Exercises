@@ -43,5 +43,11 @@ namespace CarManager.Tests
         {
             Assert.Throws<ArgumentException>(() => car = new Car("make", "model", 0, 20));
         }
+
+        [Test]
+        public void FuelConsumptionGetterWorksCorrectly()
+        {
+            Assert.That(car.FuelConsumption, Is.EqualTo(10));
+        }
     }
 }
