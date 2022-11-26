@@ -32,5 +32,11 @@
             arena.Enroll(new Warrior("name", 10, 20));
             Assert.Throws<InvalidOperationException>(() => arena.Enroll(new Warrior("name", 10, 20)));
         }
+
+        [Test]
+        public void FightMethodWithNonExistentAttackerOrDefenderShouldThrow()
+        {
+            Assert.Throws<InvalidOperationException>(() => arena.Fight("attacker", "defender"));
+        }
     }
 }
