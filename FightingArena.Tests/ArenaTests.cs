@@ -2,6 +2,7 @@
 {
     using NUnit.Framework;
     using System;
+    using System.Linq;
 
     [TestFixture]
     public class ArenaTests
@@ -37,6 +38,16 @@
         public void FightMethodWithNonExistentAttackerOrDefenderShouldThrow()
         {
             Assert.Throws<InvalidOperationException>(() => arena.Fight("attacker", "defender"));
+        }
+
+        [Test]
+        public void FightMethodShouldWorkCorrectly()
+        {
+            arena.Enroll(new Warrior("defender", 20, 35));
+            arena.Enroll(new Warrior("attacker", 10, 50));
+            arena.Fight("attacker", "defender");
+
+            Assert.That(arena.Warriors.First().HP, Is.EqualTo(25));
         }
     }
 }
