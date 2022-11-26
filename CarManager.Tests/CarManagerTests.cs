@@ -99,5 +99,13 @@ namespace CarManager.Tests
         {
             Assert.Throws<InvalidOperationException>(() => car.Drive(10000));
         }
+
+        [Test]
+        public void DriveMethodShouldWorkCorrectly()
+        {
+            car.Refuel(18);
+            car.Drive(150);
+            Assert.That(car.FuelAmount, Is.EqualTo(3));
+        }
     }
 }
