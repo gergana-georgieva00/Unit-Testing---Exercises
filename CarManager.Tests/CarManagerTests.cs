@@ -93,5 +93,11 @@ namespace CarManager.Tests
             car.Refuel(30);
             Assert.That(car.FuelAmount, Is.EqualTo(20));
         }
+
+        [Test]
+        public void DriveMethodShouldThrowIfTheNeededFuelIsMoreThanWhatTheCarHas()
+        {
+            Assert.Throws<InvalidOperationException>(() => car.Drive(10000));
+        }
     }
 }
