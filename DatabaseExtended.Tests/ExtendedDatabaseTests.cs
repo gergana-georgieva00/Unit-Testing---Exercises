@@ -70,5 +70,11 @@ namespace DatabaseExtended.Tests
         {
             Assert.Throws<ArgumentNullException>(() => db.FindByUsername(""));
         }
+
+        [Test]
+        public void FindByUsernameWithNonExistentUsernameShouldThrow()
+        {
+            Assert.Throws<InvalidOperationException>(() => db.FindByUsername("User"));
+        }
     }
 }
