@@ -79,5 +79,12 @@ namespace CarManager.Tests
         {
             Assert.Throws<ArgumentException>(() => car.Refuel(-1));
         }
+
+        [Test]
+        public void RefuelMethodShouldIncreaseTheFuelAmount()
+        {
+            car.Refuel(10);
+            Assert.That(car.FuelAmount, Is.EqualTo(10));
+        }
     }
 }
