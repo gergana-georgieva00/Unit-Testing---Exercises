@@ -86,5 +86,11 @@ namespace DatabaseExtended.Tests
             Assert.That(result.UserName, Is.EqualTo(expected.UserName));
             Assert.That(result.Id, Is.EqualTo(expected.Id));
         }
+
+        [Test]
+        public void FindByIdWithNegativeIdShouldThrow ()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => db.FindById(-1));
+        }
     }
 }
