@@ -19,5 +19,11 @@ namespace FightingArena.Tests
         {
             Assert.Throws<ArgumentException>(() => warrior = new Warrior(" ", 10, 20));
         }
+
+        [Test]
+        public void NameGetterWorksCorrectly()
+        {
+            Assert.That(warrior.Name, Is.EqualTo("warrior"));
+        }
     }
 }
