@@ -25,5 +25,12 @@ namespace FightingArena.Tests
         {
             Assert.That(warrior.Name, Is.EqualTo("warrior"));
         }
+
+        [Test]
+        public void DamageCannotBeZeroOrLess()
+        {
+            Assert.Throws<ArgumentException>(() => warrior = new Warrior("warrior", 0, 20));
+            Assert.Throws<ArgumentException>(() => warrior = new Warrior("warrior", -1, 20));
+        }
     }
 }
