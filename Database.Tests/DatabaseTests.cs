@@ -20,5 +20,13 @@ namespace Database.Tests
             Database db = new Database(new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 });
             Assert.Throws<InvalidOperationException>(() => db.Add(1));
         }
+
+        [Test]
+        public void AddMethodShouldAddElementAtTheNextFreeCell()
+        {
+            Database db = new Database(new int[] { 1, 2, 3, 4, 5 });
+            db.Add(6);
+            Assert.That(db.Count, Is.EqualTo(6), "Database count increases with new element added");
+        }
     }
 }
