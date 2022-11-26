@@ -57,7 +57,7 @@ namespace CarManager.Tests
         }
 
         [Test]
-        public void FuelAmountGetterWorksCorrectly()
+        public void FuelCapacityGetterWorksCorrectly()
         {
             Assert.That(car.FuelCapacity, Is.EqualTo(20));
         }
