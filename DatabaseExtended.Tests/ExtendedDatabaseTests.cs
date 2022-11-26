@@ -43,5 +43,27 @@ namespace DatabaseExtended.Tests
         {
             Assert.Throws<InvalidOperationException>(() => db.Add(new Person(1234567890, "User")));
         }
+
+        [Test]
+        public void AddMethodWithFilledcapacityThrow()
+        {
+            db.Add(new Person(1, "a"));
+            db.Add(new Person(2, "b"));
+            db.Add(new Person(3, "c"));
+            db.Add(new Person(4, "d"));
+            db.Add(new Person(5, "e"));
+            db.Add(new Person(6, "f"));
+            db.Add(new Person(7, "g"));
+            db.Add(new Person(8, "h"));
+            db.Add(new Person(9, "i"));
+            db.Add(new Person(10, "j"));
+            db.Add(new Person(11, "k"));
+            db.Add(new Person(12, "l"));
+            db.Add(new Person(13, "m"));
+            db.Add(new Person(14, "n"));
+            db.Add(new Person(15, "o"));
+
+            Assert.Throws<InvalidOperationException>(() => db.Add(new Person(123, "User")));
+        }
     }
 }
